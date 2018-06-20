@@ -1,0 +1,9 @@
+---
+- name: Set as default for user
+  user:
+    name: "{{ item }}"
+    shell: /usr/bin/fish
+  with_items: "{{ fish_users }}"
+  when: fish_users
+  tags:
+    - fish

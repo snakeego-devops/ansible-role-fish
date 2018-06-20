@@ -1,0 +1,10 @@
+---
+- include_tasks: centos.yml
+  when: ansible_distribution == 'CentOS'
+  tags: &TAGS
+    - fish
+- include_tasks: debian.yml
+  when: ansible_distribution == 'Debian'
+  tags: *TAGS
+- include_tasks: all.yml
+  tags: *TAGS

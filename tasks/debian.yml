@@ -1,0 +1,18 @@
+- name: Add GPG key
+  apt_key:
+    id: D880C8E4
+    url: "https://download.opensuse.org/repositories/shells:fish:release:2/Debian_{{ ansible_lsb.major_release }}.0/Release.key"
+    state: present
+  tags: &TAGS
+    - fish
+
+- name: Add latest stable repository
+  apt_repository:
+    repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_{{ ansible_lsb.major_release }}.0/ /"
+    state: present
+  tags: *TAGS
+
+- name: Install app
+  apt:
+    name: "fish"
+  tags: *TAGS

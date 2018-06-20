@@ -1,0 +1,4 @@
+galaxy_info:
+  description: Install fish shell (https://fishshell.com/) and activate for users default on CentOS/Debian
+  author: Igor Voropaev <snake@itpc.ru>
+  licence: MIT
