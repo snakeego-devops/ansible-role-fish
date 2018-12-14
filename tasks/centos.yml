@@ -5,8 +5,7 @@
     dest: /etc/yum.repos.d/
   tags: &TAGS
     - fish
-
 - name: Install app
-  yum: 
+  dnf: 
     name: fish
   tags: *TAGS
