@@ -6,6 +6,6 @@
   tags: &TAGS
     - fish
 - name: Install app
-  dnf: 
+  yum: 
     name: fish
   tags: *TAGS
