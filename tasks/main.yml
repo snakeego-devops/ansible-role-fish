@@ -1,10 +1,16 @@
----
-- include_tasks: centos.yml
-  when: ansible_distribution == 'CentOS'
+- name: Install on CentOS 7
+  include_tasks: centos-7.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'
   tags: &TAGS
     - fish
-- include_tasks: debian.yml
+- name: Install on CentOS 8
+  include_tasks: centos-8.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '8'
+  tags: *TAGS
+- name: Install on Debian
+  include_tasks: debian.yml
   when: ansible_distribution == 'Debian'
   tags: *TAGS
-- include_tasks: all.yml
+- name: After install
+  include_tasks: all.yml
   tags: *TAGS
